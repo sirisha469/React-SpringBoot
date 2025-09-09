@@ -1,0 +1,145 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;   /* Prevent scrolling */
+  display: flex;
+  justify-content: center;  /* center horizontally */
+  align-items: center;  /* center vertically */
+}
+
+.login-container {
+  background-color: #e5e6e8;
+  display: flex;
+  height: 80vh;
+  width: 80vw;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.20);
+}
+
+
+/* .login-container {
+  display: flex;              
+  justify-content: center;    
+  align-items: center;        
+  height: 100vh;
+  background-color: #f5f6fa;
+  gap: 20px;               
+} */
+
+.branding {
+  flex: 1;
+  background: linear-gradient(to bottom right, #4eabc8, #4ec8a7); /* gradient bg */
+  opacity: 0.6;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-weight: bold;
+  /* border-radius: 500px; */
+}
+
+/* .branding-logo{
+  height: 250px;
+  width: 250px;
+  border-radius: 125px;
+  background-color: white;
+} */
+.branding-logo h3{
+  color: black;
+}
+
+.branding img {
+  width: 250px;
+  height: 250px;
+  border-radius: 125px;
+}
+
+.login-box {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e5e6e8;
+  /* border-radius: 10px; */
+}
+
+.login-form {
+  width: 300px;
+  padding: 30px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+.login-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.login-form input {
+  width: 92%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: #4e54c8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background: #3b40a4;
+}
+
+.login-form p{
+  text-align: center;
+}
+
+/* .login-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}    */
+
+/* Box styles */
+/* .login-box {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+  text-align: center;
+} */
+
+/* .login-container{
+
+  /* display: flex;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid red;
+  height: 95vh;
+  background-color: #f5f6fa;
+  font-family: Arial, sans-serif; 
+} */
+
+/* .login-box{
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 350px;
+  height: 350px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-align: center;
+} */

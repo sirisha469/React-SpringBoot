@@ -2,7 +2,7 @@ import HelloPage from "./components/helloPage";
 import PaymentPage from "./components/paymentPage";
 import Sample from "./components/sample";
 import { BrowserRouter as Router,Routes, Route, Link } from "react-router-dom";
-import WelcomePage from "./components/welcomePage";
+import LoginPage from "./auth/loginPage";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           <Link to="/hello">Hello Page</Link>
         </nav> */}
         <Routes> 
-          <Route path="/" element={<WelcomePage/>}/>
+          <Route path="/" element={<LoginPage/>}/>
           <Route path="/hi" element={<PaymentPage/>}/>
           <Route path="/hello" element={<HelloPage/>}/>
         </Routes>
