@@ -1,7 +1,8 @@
-import "../auth/loginPage.css";
 import { Link } from "react-router-dom";
+import "../auth/loginPage.css";
 
-function LoginPage(){
+function RegisterPage(){
+
   return(
     <div className="login-container">
       <div className="branding">
@@ -12,15 +13,17 @@ function LoginPage(){
       </div>
       <div className="login-box">
         <div className="login-form">
-          <h2>Login</h2>
-          <input type="text" placeholder="Username"/>
+          <h2>Register</h2>
+          <input type="text" placeholder="Name"/>
+          <input type="text" placeholder="Email"/>
+          <input type="text" placeholder="Mobile"/>
           <input type="password" placeholder="Password"/>
-          <button>Login</button>
-          <p>Not a user? <Link to="/register">Register</Link></p>
+          <button>Register</button>
+          <p>Already have an account? <Link to="/">Login</Link></p>
         </div>
       </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default RegisterPage;

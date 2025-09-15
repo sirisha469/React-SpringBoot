@@ -62,7 +62,10 @@ html, body {
   justify-content: center;
   align-items: center;
   background: #e5e6e8;
-  /* border-radius: 10px; */
+  /*scrolling form up and down if the content overflow
+  align-items: flex-start; /* stick form to the top 
+  overflow-y: auto;        /* scroll form if too tall 
+  padding: 20px;    */
 }
 
 .login-form {
@@ -71,6 +74,7 @@ html, body {
   background: white;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   border-radius: 10px;
+  /* margin: 15px 0; */
 }
 
 .login-form h2 {

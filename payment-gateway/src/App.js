@@ -3,6 +3,7 @@ import PaymentPage from "./components/paymentPage";
 import Sample from "./components/sample";
 import { BrowserRouter as Router,Routes, Route, Link } from "react-router-dom";
 import LoginPage from "./auth/loginPage";
+import RegisterPage from "./auth/registerPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<LoginPage/>}/>
           <Route path="/hi" element={<PaymentPage/>}/>
           <Route path="/hello" element={<HelloPage/>}/>
+          <Route path="/register" element={<RegisterPage/>}/>
         </Routes>
         </div>
       </Router>
