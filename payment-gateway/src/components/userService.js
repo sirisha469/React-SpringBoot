@@ -1,6 +1,6 @@
 import axios from "axios";
 
-class paymentService{
+class userService{
   static BASE_URL = "http://localhost:8080";
 
   static async hi(){
@@ -20,6 +20,15 @@ class paymentService{
       throw error;
     }
   }
+
+  static async register(userData){
+    try{
+      const response = await axios.post(`${this.BASE_URL}/register`, userData);
+      return response;
+    }catch(error){
+      throw error;
+    }
+  }
 }
 
-export default paymentService;
+export default userService;

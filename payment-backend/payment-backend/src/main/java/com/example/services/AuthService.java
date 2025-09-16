@@ -20,7 +20,7 @@ public class AuthService {
 
     if(findByEmail(userRequest.getEmail())){
       user.setId(userRequest.getId());
-      user.setUserName(userRequest.getUserName());
+      user.setName(userRequest.getName());
       user.setEmail(userRequest.getEmail());
       user.setMobile(userRequest.getMobile());
       user.setPassword(userRequest.getPassword());

@@ -1,6 +1,5 @@
 import HelloPage from "./components/helloPage";
 import PaymentPage from "./components/paymentPage";
-import Sample from "./components/sample";
 import { BrowserRouter as Router,Routes, Route, Link } from "react-router-dom";
 import LoginPage from "./auth/loginPage";
 import RegisterPage from "./auth/registerPage";

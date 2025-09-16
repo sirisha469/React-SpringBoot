@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import api from "./sample";
-import paymentService from "./sample";
+import userService from "./userService";
 
 export default function PaymentPage() {
   const [message, setMessage] = useState("");
@@ -9,7 +7,7 @@ export default function PaymentPage() {
    useEffect(() => {
 
     //const msg = paymentService.hi();
-    paymentService.hi()
+    userService.hi()
       .then((res) => {
         setMessage(res.data); // update state with backend response
       })

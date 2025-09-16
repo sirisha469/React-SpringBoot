@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import paymentService from "./sample";
+import userService from "./userService";
 
 
 export default function HelloPage(){
   const [message, setMessage] = useState("");
 
   useEffect(()=>{
-    paymentService.hello()
+    userService.hello()
         .then((res)=>{
           setMessage(res.data);
         })
