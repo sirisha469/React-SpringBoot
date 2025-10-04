@@ -1,6 +1,7 @@
 package com.example.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.dto.UserDto;
@@ -12,6 +13,7 @@ public class AuthService {
   
   @Autowired
   private AuthRepo authRepo;
+  // private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
 
   public UserDto register(UserDto userRequest){
     //System.out.println(userRequest);
@@ -42,5 +44,16 @@ public class AuthService {
 
   public boolean findByEmail(String email){
     return authRepo.findByEmail(email)==null;
+  }
+
+
+  public UserDto login(UserDto userRequest){
+    UserDto userResponse = new UserDto();
+
+    if(findByEmail(userRequest.getEmail())){
+
+    }
+
+    return userResponse;
   }
 }

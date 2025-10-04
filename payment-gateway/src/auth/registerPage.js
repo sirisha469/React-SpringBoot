@@ -37,7 +37,7 @@ function RegisterPage(){
       navigate('/')
     }catch(err){
       console.error('Error registering user: ', err);
-      alert('Error occured while registering user');
+      alert('Error occured while registering user',err);
     }
   }
 
