@@ -1,6 +1,7 @@
 package com.example.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,8 @@ public class AuthService {
   
   @Autowired
   private AuthRepo authRepo;
-  // private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+  
+  private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
 
   public UserDto register(UserDto userRequest){
     //System.out.println(userRequest);
@@ -25,7 +27,7 @@ public class AuthService {
       user.setName(userRequest.getName());
       user.setEmail(userRequest.getEmail());
       user.setMobile(userRequest.getMobile());
-      user.setPassword(userRequest.getPassword());
+      user.setPassword(encoder.encode(userRequest.getPassword()));
 
       User userResult = authRepo.save(user);
       System.out.println("User Results: "+userResult);
