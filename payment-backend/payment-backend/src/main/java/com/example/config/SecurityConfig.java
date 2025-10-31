@@ -3,26 +3,26 @@ package com.example.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+
+import com.example.services.MyUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
   @Autowired
-  public UserDetailsService userDetailsService;
+  public MyUserDetailsService myUserDetailsService;
   
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
@@ -31,7 +31,7 @@ public class SecurityConfig {
       .csrf(AbstractHttpConfigurer::disable)
       .cors(Customizer.withDefaults())
       .authorizeHttpRequests(request -> request //by adding this line to that csrf we can only able to access /hi only remaining all the APIs are not reachable
-                            .requestMatchers("/hi").permitAll()
+                            .requestMatchers("/hi","/register","/login").permitAll()
                             .anyRequest().authenticated())
       .httpBasic(Customizer.withDefaults()) // by adding this line to above two lines we are getting basic authentications
       .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -56,8 +56,14 @@ public class SecurityConfig {
   @Bean
   public AuthenticationProvider authenticationProvider(){
     DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-    provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
-    provider.setUserDetailsService(userDetailsService);
+    //provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
+    provider.setPasswordEncoder(new BCryptPasswordEncoder(12));
+    provider.setUserDetailsService(myUserDetailsService);
     return provider;
+  }
+
+  @Bean
+  public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception{
+    return config.getAuthenticationManager();
   }
 }

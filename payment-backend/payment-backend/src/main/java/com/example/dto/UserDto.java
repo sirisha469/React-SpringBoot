@@ -19,5 +19,6 @@ public class UserDto {
   private User user;
   private String message;
   private String error;
-
+  private String token;
+  
 }
