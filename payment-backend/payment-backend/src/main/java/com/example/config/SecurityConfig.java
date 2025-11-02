@@ -14,6 +14,7 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.example.services.MyUserDetailsService;
 
@@ -22,8 +23,11 @@ import com.example.services.MyUserDetailsService;
 public class SecurityConfig {
 
   @Autowired
+  private JwtFilter jwtFilter;
+
+  @Autowired
   public MyUserDetailsService myUserDetailsService;
-  
+
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
 
@@ -35,6 +39,7 @@ public class SecurityConfig {
                             .anyRequest().authenticated())
       .httpBasic(Customizer.withDefaults()) // by adding this line to above two lines we are getting basic authentications
       .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+      .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
       .build();
   }
 

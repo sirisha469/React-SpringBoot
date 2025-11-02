@@ -29,6 +29,17 @@ class userService{
       throw error;
     }
   }
+
+  static async login(email, password){
+    try{
+      const response = await axios.post(`${this.BASE_URL}/login`,{email,password})
+      console.log(response.data);
+      return response.data;
+    }
+    catch(err){
+      throw err;
+    }
+  }
 }
 
 export default userService;

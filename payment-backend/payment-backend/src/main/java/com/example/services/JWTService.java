@@ -22,7 +22,7 @@ import io.jsonwebtoken.security.Keys;
 public class JWTService {
 
   private String secretKey = "";
-    private SecretKey key;
+  private SecretKey key;
 
   public JWTService(){
       try {
